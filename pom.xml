@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>itrip-beans</module>
+        <module>itrip-dao</module>
+        <module>itrip-utils</module>
+        <module>itrip-auth</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.xxq</groupId>
+    <artifactId>itrip-project</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>itrip-project</name>
+    <description>爱旅行</description>
+
+    <!--    指定打包方式为pom,用于管理子模块的打包-->
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <mybatis-plus-boot-starter.version>3.4.0</mybatis-plus-boot-starter.version>
+        <swagger.version>2.9.2</swagger.version>
+        <lombok.version>1.18.12</lombok.version>
+        <itripversion>0.0.1-SNAPSHOT</itripversion>
+    </properties>
+
+    <!--     统一管理子模块的依赖版本信息-->
+    <dependencyManagement>
+        <dependencies>
+
+            <!--itrip相关的模块-->
+            <!--导入 beans-->
+            <dependency>
+                <groupId>com.xxq</groupId>
+                <artifactId>itrip-beans</artifactId>
+                <version>${itripversion}</version>
+            </dependency>
+
+            <!--导入 dao-->
+            <dependency>
+                <groupId>com.xxq</groupId>
+                <artifactId>itrip-dao</artifactId>
+                <version>${itripversion}</version>
+            </dependency>
+
+            <!--导入utils-->
+            <dependency>
+                <groupId>com.xxq</groupId>
+                <artifactId>itrip-utils</artifactId>
+                <version>${itripversion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xxq</groupId>
+                <artifactId>itrip-auth</artifactId>
+                <version>${itripversion}</version>
+            </dependency>
+
+            <!--mybatis -plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
